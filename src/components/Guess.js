@@ -3,18 +3,12 @@ import { Char } from './Char';
 import { KeyBoard } from './KeyBoard';
 import '../app/App.css';
 
-export const Guess = () => {
-    
-    const data = [
-      {"id":0, "q":"FOUNTAIN", "count":8},
-      {"id":1, "q":"HEARTTHROB", "count":10},
-      {"id":2, "q":"ENVY", "count":4},
-      {"id":3, "q":"FORSYTHIA", "count":9}
-    ]
+export const Guess = (word) => {
+
+    const wordStr = word.word
+    const count = wordStr.length
     const [guesses,setGuesses] = useState([])
-    const [qIndex,setQIndex] = useState(1)
-    const {q,count} = data[qIndex]
-    
+   
     const guess = c=>{
       if (guesses.join('').indexOf(c)<0)
         setGuesses([...guesses,c])
@@ -29,8 +23,8 @@ export const Guess = () => {
       if (guesses.length>0) {
         const guessesStr = guesses.join('')
         let n = 0
-        for (let i=0;i<q.length;i++) {
-          const c = q.charAt(i)
+        for (let i=0;i<wordStr.length;i++) {
+          const c = wordStr.charAt(i)
           if (guessesStr.indexOf(c)>=0) {
             n++
           }
@@ -45,8 +39,8 @@ export const Guess = () => {
         <div>
           <div className="answer">
             {
-              (new Array(q.length)).fill(0).map((e,i)=>{
-                const c = q.charAt(i)
+              (new Array(wordStr.length)).fill(0).map((e,i)=>{
+                const c = wordStr.charAt(i)
                 const reveal = guesses.join('').indexOf(c)>=0
                 if (c===' ') {
                   return <div key={i} className="col-12"></div>
