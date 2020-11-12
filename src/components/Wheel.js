@@ -1,15 +1,11 @@
-import React, { createContext, useState } from 'react';
+import React, { useState } from 'react';
 import WheelComponent from 'react-wheel-of-prizes';
+import { Guess } from './Guess';
 import 'react-wheel-of-prizes/dist/index.css';
 
-export const WordContext = createContext()
-
-export const Wheel = (props) => {
-
-  const [word, setWord] = useState("")
-  const blue = "FOUNTAIN"
-  // setWord(blue) 
-  // console.log(blue)
+export const Wheel = () => {
+  
+  const [ word, setWord ] = useState("X")
 
   const segments = [
     'Name this blue paint',
@@ -21,7 +17,7 @@ export const Wheel = (props) => {
     'Name this green paint',
     'Spin again'
   ];
-
+  
   const segColors = [
     "#56B5CA", //Name this paint color (Fountain)
     "#F10792", //Womp womp
@@ -32,32 +28,22 @@ export const Wheel = (props) => {
     "#358C3F", //Name this paint color (Envy)
     "#932B8E", //Spin again
   ];
-
-  const red = "HEARTTHROB"
-  const yellow = "FORSYTHIA"
-  const green = "ENVY"
+  
 
   function onFinished(winner) {
     if (winner === segments[0]) {
-      setWord(blue)
-      .then(console.log(word));
-      debugger 
+      setWord('FOUNTAIN')
     } else if (winner === segments[2]) {
-      setWord(red)
-      .then(console.log(word));
-      debugger
+      setWord('HEARTTHROB')
     } else if (winner === segments[4]) {
-      setWord(yellow)
-      .then(console.log(word));
-      debugger
+      setWord('FORSYTHIA')
     } else if (winner === segments[6]) {
-      setWord(green)
-      .then(console.log(word));
-      debugger
+      setWord('ENVY')
     } else {
-      console.log(winner)
+      setWord('X')
+      console.log(word)
+      window.location.reload()
     }
-    return word
   }
 
   return (
@@ -71,11 +57,7 @@ export const Wheel = (props) => {
         buttonText='Spin'
         onFinished={(winner) => onFinished(winner)}
       />
-
-      <WordContext.Provider 
-        value={{ word }}>
-        {props.children}
-      </WordContext.Provider>
+      <Guess word={word}/>
     </>
   )
 }
