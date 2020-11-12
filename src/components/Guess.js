@@ -6,10 +6,10 @@ import '../app/App.css';
 export const Guess = () => {
     
     const data = [
-      {"id":0, "q":"FOUNTAIN", "count":11},
-      {"id":1, "q":"HEARTTHROB", "count":11},
-      {"id":2, "q":"ENVY", "count":11},
-      {"id":3, "q":"FORSYTHIA", "count":11}
+      {"id":0, "q":"FOUNTAIN", "count":8},
+      {"id":1, "q":"HEARTTHROB", "count":10},
+      {"id":2, "q":"ENVY", "count":4},
+      {"id":3, "q":"FORSYTHIA", "count":9}
     ]
     const [guesses,setGuesses] = useState([])
     const [qIndex,setQIndex] = useState(1)
