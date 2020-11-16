@@ -8,14 +8,37 @@ body {
 #canvas {
   margin-bottom: -6rem;
   margin-left: 20%;
-  width: 100vw;
+  width: 90vw;
+}
+
+.answer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10%;
+}
+
+.correct {
+  perspective: 1000px;
+  border: 2px outset whitesmoke;
+  border-radius: 5px;
+  width: 6vw;
+  color: whitesmoke;
+  font-size: 6vw;
+  height: 6vw;
+  line-height: 6vw;
+  margin: 0.5rem;
+  text-align: center;
+  vertical-align: middle;
 }
 
 #keyboard {
   border-radius: 5px;
   text-align: center;
-  width: 80%;
-  margin: auto;
+  width: 75%;
+  margin: 5% auto;
+ 
 }
 
 #keys {
@@ -24,27 +47,9 @@ body {
   justify-content: center;
 }
 
-.answer {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-}
-
-.correct {
-  perspective: 1000px;
-  background-color: #932b8e;
-  border: 2px outset whitesmoke;
-  border-radius: 5px;
-  width: 3rem;
-  box-shadow: 0px 0px 10px 5px #932b8e;
-  color: whitesmoke;
-  font-size: 3rem;
-  height: 3rem;
-  line-height: 3rem;
-  margin: 0.5rem;
-  text-align: center;
-  vertical-align: middle;
+.key button {
+  height: 5vw;
+  width: 5vw;
 }
 
 .disabled {
@@ -63,7 +68,14 @@ textarea {
   background-color: lightgray;
   border: 1px outset whitesmoke;
   font-size: 1rem;
-  height: 3rem;
+  height: 4vw;
   margin: 5px;
-  width: 3rem;
+  width: 4vw;
+}
+
+#huzzah {
+  color: black;
+  font-size: 15vw;
+  margin-top: 20%;
+  text-align: center;
 }

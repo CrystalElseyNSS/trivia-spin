@@ -1,22 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, createContext } from 'react';
 import { Char } from './Char';
 import { KeyBoard } from './KeyBoard';
+import Confetti from 'react-confetti'
 import '../app/App.css';
 
-export const Guess = (word) => {
+
+export const WinContext = createContext()
+
+export const Guess = ( word ) => {
 
     const wordStr = word.word
+    const color = word.color
     const count = wordStr.length
-    const [guesses,setGuesses] = useState([])
-   
-    const guess = c=>{
+    const [ guesses,setGuesses ] = useState([])
+    const [ hasWon, setHasWon ] = useState(false)
+    const width = window.innerWidth
+    const height = window.innerHeight
+           
+    const guess = (c) =>{
       if (guesses.join('').indexOf(c)<0)
         setGuesses([...guesses,c])
     }
     
     const win = ()=>{
-      alert("Nailed it!")
-      window.location.reload()
+      setHasWon(true)
     }
     
     useEffect(()=>{
@@ -35,27 +42,26 @@ export const Guess = (word) => {
     }, [guesses])
     
     return (
-      <div>
-        <div>
-          <div className="answer">
-            {
-              (new Array(wordStr.length)).fill(0).map((e,i)=>{
+      <>
+        { hasWon ? <h1 id="huzzah">HUZZAH!<Confetti width={width} height={height}></Confetti></h1> : 
+
+          <div>
+      
+            <div className="answer">
+              {(new Array(wordStr.length)).fill(0).map((e,i) => {
                 const c = wordStr.charAt(i)
                 const reveal = guesses.join('').indexOf(c)>=0
-                if (c===' ') {
-                  return <div key={i} className="col-12"></div>
-                }
-                return (
-                  <Char key={i} value={c} reveal={reveal} />
-                )
-              })
-            }
+                if (c===' ') { return <div key={i} className="col-12"></div> }
+                return ( <Char key={i} value={c} reveal={reveal} color={color} numberOfPieces={400} gravity={0.2}/> )
+              })}
+            </div>
+      
+            <div>
+              <KeyBoard onClick={guess} data={guesses} />
+            </div>
+
           </div>
-        </div>
-       
-        <div>
-          <KeyBoard onClick={guess} data={guesses} />
-        </div>
-      </div>
+        }
+      </>
     )
   }

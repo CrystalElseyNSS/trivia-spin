@@ -29,7 +29,7 @@ export const KeyBoard = (props) => {
                 btn.shadow = 'sm'
               }
               return (
-                <div key={i} className="col">
+                <div key={i} className="key">
                   <Button onClick={()=>click(e)} disabled={disabled}>{e}</Button>
                 </div>
               )
