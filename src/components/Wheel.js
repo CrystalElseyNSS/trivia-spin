@@ -1,34 +1,41 @@
 import React, { useState } from 'react';
 import WheelComponent from 'react-wheel-of-prizes';
+import useSound from 'use-sound';
+import click from './click.mp3';
+import wheel from './wheel.mp3';
 import { Guess } from './Guess';
 import 'react-wheel-of-prizes/dist/index.css';
 
 export const Wheel = () => {
   
-  const [ word, setWord ] = useState("X")
+  const [ word, setWord ] = useState("")
   const [ color, setColor ] = useState("")
   const [ showGuess, setShowGuess ] = useState(false)
+  const [ playClick ] = useSound(click, { volume: 0.25 })
+  const [ playWheel ] = useSound(wheel, { volume: 0.25 })
+           
+  document.addEventListener('mousedown', playClick);
 
   const segments = [
-    'Name this teal paint',
-    'Name this pink paint',
-    'Name this red paint',
-    'Name this blue paint',
-    'Name this yellow paint',
-    'Name this orange paint',
-    'Name this green paint',
-    'Name this purple paint'
+    'Name the teal paint',
+    'Name the pink paint',
+    'Name the red paint',
+    'Name the blue paint',
+    'Name the yellow paint',
+    'Name the orange paint',
+    'Name the green paint',
+    'Name the purple paint'
   ];
   
   const segColors = [
-    "#56B5CA", //Name this paint color (Fountain)
-    "#ED939D", //Name this pink paint (Amaryllis)
-    "#EE2528", //Name this paint color (Heartthrob)
-    "#105F97", // Blue: Hyper
-    "#FCD200", //Name this paint color (Forsythia)
-    "#EC8431", //Name this paint color (Navel)
-    "#358C3F", //Name this paint color (Envy)
-    "#7E6596", //Purple: Clematis
+    "#56B5CA", // FOUNTAIN
+    "#ED939D", // AMARYLLIS
+    "#EE2528", // HEARTTHROB
+    "#105F97", // HYPER
+    "#FCD200", // FORSYTHIA
+    "#EC8431", // NAVEL
+    "#358C3F", // ENVY
+    "#7E6596", // CLEMATIS
   ];
   
 
@@ -64,7 +71,7 @@ export const Wheel = () => {
   return (
     <>
       { showGuess ? <Guess word={word} color={color}/> : 
-      
+      <div onClick={playWheel}>
       <WheelComponent
         segments={segments}
         segColors={segColors}
@@ -76,6 +83,7 @@ export const Wheel = () => {
           (winner) => onFinished(winner)
         }
       />
+      </div>
       } 
     </>
   )
