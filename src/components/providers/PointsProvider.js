@@ -10,9 +10,14 @@ export const PointsProvider = ({ children }) => {
         .then(res => res.json())
     }
 
+    const addUserPoints = ( points, player ) => {
+        return fetch(`https://us-central1-leo-arcade.cloudfunctions.net/addPoints?points=${points}&player=${player}`)
+        .then(res => res.json())
+    }
+
     return (
         <>
-            <PointsContext.Provider value={{ addPoints }}>
+            <PointsContext.Provider value={{ addPoints, addUserPoints }}>
                 {children}
             </PointsContext.Provider>
         </>

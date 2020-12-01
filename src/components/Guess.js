@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { PointsContext } from './providers/PointsProvider';
 import { KeyBoard } from './KeyBoard';
 import { Char } from './Char';
@@ -16,7 +17,7 @@ export const Guess = (word) => {
   const [guesses, setGuesses] = useState([])
   const [hasWon, setHasWon] = useState(false)
   const [hasLost, setHasLost] = useState(false)
-  const { addPoints } = useContext(PointsContext)
+  const { addUserPoints } = useContext(PointsContext)
   const [guessCount, setGuessCount] = useState(10)
   const width = window.innerWidth
   const height = window.innerWidth
@@ -24,6 +25,7 @@ export const Guess = (word) => {
   const [playClick] = useSound(click, { volume: 0.1 })
 
   document.addEventListener('mousedown', playClick);
+  const { player } = useParams()
 
   const guess = (c) => {
     if (guesses.join('').indexOf(c) < 0)
@@ -33,7 +35,7 @@ export const Guess = (word) => {
 
   const win = () => {
     setHasWon(true)
-    addPoints(100)
+    addUserPoints(100, player)
   }
 
   const lose = () => {

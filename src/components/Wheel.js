@@ -16,6 +16,7 @@ export const Wheel = () => {
            
   document.addEventListener('mousedown', playClick);
 
+
   const segments = [
     'Name the teal paint',
     'Name the pink paint',
@@ -70,7 +71,7 @@ export const Wheel = () => {
 
   return (
     <>
-      { showGuess ? <Guess word={word} color={color}/> : 
+      { showGuess ? <Guess word={word} color={color} /> : 
       <div onClick={playWheel}>
       <WheelComponent
         segments={segments}

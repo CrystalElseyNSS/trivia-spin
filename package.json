@@ -11,6 +11,7 @@
     "react": "^17.0.1",
     "react-confetti": "^6.0.0",
     "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
     "react-wheel-of-prizes": "^1.0.4",
     "reactstrap": "^8.7.1",
