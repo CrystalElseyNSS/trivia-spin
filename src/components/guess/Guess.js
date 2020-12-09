@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { PointsContext } from './providers/PointsProvider';
+import { PointsContext } from '../../providers/PointsProvider';
 import { KeyBoard } from './KeyBoard';
 import { Char } from './Char';
 import useSound from 'use-sound';
-import trombone from './trombone.mp3';
-import click from './click.mp3';
+import trombone from '../assets/trombone.mp3';
+import click from '../assets/click.mp3';
 import Confetti from 'react-confetti'
-import '../app/App.css';
+import './Guess.css';
 
 export const Guess = (word) => {
 
@@ -65,14 +65,18 @@ export const Guess = (word) => {
     <>
 
       { hasWon ?
-          <h1 id="huzzah">{points} POINTS! 
+        <div className="gameOverContainer">
+          <h1 className="gameOver">{points} POINTS! 
             <Confetti width={width} height={height} numberOfPieces={800} gravity={0.2}></Confetti>
           </h1>
+        </div>
         :
         <div>
           {hasLost ?
-            <div id="loser">
-              <img src="https://media1.tenor.com/images/02dd25d2fed7605814810607b03dcb22/tenor.gif?itemid=12107264" alt="womp womp" />
+            <div className="gameOverContainer">
+              <div>
+                <h1 className="gameOver">TRY AGAIN</h1>
+              </div>
             </div>
             :
             <div id="guessContainer">
@@ -84,11 +88,11 @@ export const Guess = (word) => {
                   {(new Array(wordStr.length)).fill(0).map((e, i) => {
                     const c = wordStr.charAt(i)
                     const reveal = guesses.join('').indexOf(c) >= 0
-                    if (c === ' ') { return <div key={i}></div> }
+                    if (c === ' ') { return <div style={{width: "4vw", marginRight: "2%"}}></div> }
                     return (<Char key={i} value={c} reveal={reveal} color={color} />)
                   })}
                 </div>
-                <div className="counter">
+                <div>
                     <div id="counter" style={{ backgroundColor: color }}>{guessCount}</div>
                 </div>
               </div>

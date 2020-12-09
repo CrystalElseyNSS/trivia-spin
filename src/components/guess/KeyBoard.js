@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'reactstrap';
-import '../app/App.css';
+import './Guess.css';
 
 export const KeyBoard = (props) => {
     const {onClick, data} = props 

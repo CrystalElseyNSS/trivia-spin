@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
-import { PointsProvider } from '../components/providers/PointsProvider';
-import { Wheel } from '../components/Wheel';
+import { PointsProvider } from '../providers/PointsProvider';
+import { Wheel } from '../components/wheel/Wheel';
 import './App.css';
 
 export const App = () => {

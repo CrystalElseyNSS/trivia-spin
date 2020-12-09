@@ -8,7 +8,6 @@ import React, { useEffect, useState } from 'react'
   primaryColor,
 }) => {
   let currentSegment = ''
-  let isStarted = false
   const [isFinished, setFinished] = useState(false)
   let timerHandle = 0
   const timerDelay = segments.length
@@ -26,7 +25,7 @@ import React, { useEffect, useState } from 'react'
   useEffect(() => {
     wheelInit()
     setTimeout(() => {
-      window.scrollTo(0, 1)
+      window.scrollTo(0, 2)
     }, 0)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -53,6 +52,8 @@ import React, { useEffect, useState } from 'react'
     canvas.addEventListener('click', spin, false)
     canvasContext = canvas.getContext('2d')
   }
+  
+  let isStarted = false
 
   const spin = () => {
     // eslint-disable-next-line no-unused-vars
@@ -150,14 +151,19 @@ import React, { useEffect, useState } from 'react'
     ctx.lineWidth = 10
     ctx.strokeStyle = primaryColor
     ctx.stroke()
+
   }
 
+  
   // Draw spin button 
   const drawNeedle = () => {
     const ctx = canvasContext
-    const newImg = new Image()
-    newImg.src = "https://eventfinity-production-assets.s3.amazonaws.com/materials/742941/original/SPIN.png"
-    ctx.drawImage(newImg, 235, 195, 140, 175)
+    if (isStarted === false) {
+      const spinBtn = new Image()
+      spinBtn.setAttribute('id', 'btn--spin')
+      spinBtn.src = "https://eventfinity-production-assets.s3.amazonaws.com/materials/742941/original/SPIN.png"
+      spinBtn.onload = function() {ctx.drawImage(spinBtn, 235, 195, 140, 175)}
+    }
     const change = angleCurrent + Math.PI / 2
     let i = segments.length - Math.floor((change / (Math.PI * 2)) * segments.length) - 1
     if (i < 0) i = i + segments.length
