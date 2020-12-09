@@ -1,23 +1,51 @@
-@import url("https://fonts.googleapis.com/css?family=Fredoka+One");
+@font-face {
+  font-family: Arial_Black;
+  src: url(https://eventfinity-production-assets.s3.amazonaws.com/materials/739151/original/Arial-Black.ttf);
+}
+
+@font-face {
+  font-family: Arial_Regular;
+  src: url(https://eventfinity-production-assets.s3.amazonaws.com/materials/739141/original/Arial.ttf);
+}
 
 body {
-  background-color: white !important;
-  font-family: "Fredoka One";
+  background-color: black !important;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsz6Yh16pLpXUpubW6lPd7g1RULdumtnvXeQ&usqp=CAU");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Arial_Regular !important;
   padding-bottom: 2.5rem;
 }
 
 #canvas {
-  background-color: white !important;
+  background-color: transparent;
+  font-family: Arial_Black !important;
+  font-size: 2vw;
   margin-left: 23%;
   width: 90vw;
 }
 
-#canvas segments {
+#canvas segment {
   color: white;
+  font-family: Arial_Black !important;
+}
+
+#btn--spin {
+  z-index: 1;
+}
+
+#guessContainer {
+  background-color: white;
+  border: 8px solid turquoise;
+  height: 90%;
+  margin: 5% auto;
+  width: 90%;
+  z-index: -1;
 }
 
 .question {
-  color: black;
+  color: #0067B0;
+  font-family: Arial_Black;
   font-size: 3.5vw;
   text-align: center;
 }
@@ -33,13 +61,15 @@ body {
   align-items: center;
   justify-content: center;
   margin: 1% 5% 0 0;
+  z-index: 1;
 }
 
 .answerDiv {
   align-items: center;
   display: flex;
   flex: nowrap;
-  justify-content: center;
+  justify-content: space-evenly;
+  margin-left: 15%;
 }
 
 .correct {
@@ -75,9 +105,9 @@ body {
   border: 2px outset whitesmoke;
   border-radius: 50%;
   font-size: 3.5vw;
-  height: 9vw;
-  line-height: 9vw;
-  width: 9vw;
+  height: 7vw;
+  line-height: 7vw;
+  width: 7vw;
 }
 
 .disabled {
@@ -96,8 +126,8 @@ textarea {
   border-radius: 50%;
   color: black;
   font-size: 3vw;
+  float: right;
   height: 7vw;
-  margin: auto;
   width: 7vw;
   line-height: 7vw;
   text-align: center;
@@ -105,9 +135,9 @@ textarea {
 }
 
 #huzzah {
-  color: green;
+  color: white;
   font-size: 10vw;
-  margin-top: 10%;
+  margin-top: 15%;
   text-align: center;
 }
 

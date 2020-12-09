@@ -11,7 +11,7 @@ export const KeyBoard = (props) => {
       }
     }
 
-    const ABC = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    const ABC = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789'
 
     return (
       <div id="keyboard" >

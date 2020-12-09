@@ -13,6 +13,8 @@ export const Guess = (word) => {
 
   const wordStr = word.word
   const color = word.color
+  const question = word.question
+  const points = word.points
   const count = wordStr.length
   const [guesses, setGuesses] = useState([])
   const [hasWon, setHasWon] = useState(false)
@@ -35,7 +37,7 @@ export const Guess = (word) => {
 
   const win = () => {
     setHasWon(true)
-    addUserPoints(100, player)
+    addUserPoints(points, player)
   }
 
   const lose = () => {
@@ -63,7 +65,7 @@ export const Guess = (word) => {
     <>
 
       { hasWon ?
-          <h1 id="huzzah">100 POINTS! HUZZAH!
+          <h1 id="huzzah">{points} POINTS! 
             <Confetti width={width} height={height} numberOfPieces={800} gravity={0.2}></Confetti>
           </h1>
         :
@@ -73,10 +75,9 @@ export const Guess = (word) => {
               <img src="https://media1.tenor.com/images/02dd25d2fed7605814810607b03dcb22/tenor.gif?itemid=12107264" alt="womp womp" />
             </div>
             :
-            <div>
+            <div id="guessContainer">
               <div className="question">
-                <p>What's the name of this Sherwin Williams paint color?</p>
-                <img src="https://www.pnmedical.com/wp-content/uploads/2020/08/arrow-gif-01.gif" alt="arrow" />
+                <p>{question}</p>
               </div>
               <div className="answerDiv">
                 <div className="answer">
@@ -88,15 +89,7 @@ export const Guess = (word) => {
                   })}
                 </div>
                 <div className="counter">
-                  {guessCount >= 7 &&
-                    <div id="counter" style={{ backgroundColor: "green" }}>{guessCount}</div>
-                  }
-                  {(guessCount < 7) && (guessCount > 3) &&
-                    <div id="counter" style={{ backgroundColor: "yellow" }}>{guessCount}</div>
-                  }
-                  {(guessCount < 4) && (guessCount > -1) &&
-                    <div id="counter" style={{ backgroundColor: "red" }}>{guessCount}</div>
-                  }
+                    <div id="counter" style={{ backgroundColor: color }}>{guessCount}</div>
                 </div>
               </div>
               <div>
