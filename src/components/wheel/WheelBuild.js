@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import { SpinButton } from './SpinButton'
 
- export const WheelComponent = ({
+export const WheelComponent = ({
   segments,
   segColors,
   winningSegment,
@@ -9,6 +10,7 @@ import React, { useEffect, useState } from 'react'
 }) => {
   let currentSegment = ''
   const [isFinished, setFinished] = useState(false)
+  const [isStarted, setIsStarted] = useState(false)
   let timerHandle = 0
   const timerDelay = segments.length
   let angleCurrent = 0
@@ -27,7 +29,7 @@ import React, { useEffect, useState } from 'react'
     setTimeout(() => {
       window.scrollTo(0, 2)
     }, 0)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   const wheelInit = () => {
     initCanvas()
@@ -52,21 +54,22 @@ import React, { useEffect, useState } from 'react'
     canvas.addEventListener('click', spin, false)
     canvasContext = canvas.getContext('2d')
   }
-  
-  let isStarted = false
 
   const spin = () => {
+    setIsStarted(true)
+    console.log("spinning", isStarted)
     // eslint-disable-next-line no-unused-vars
-    isStarted = true
-    if (timerHandle === 0) {
-      spinStart = new Date().getTime()
-      maxSpeed = Math.PI / segments.length
-      frames = 0
-      timerHandle = setInterval(onTimerTick, timerDelay)
-    }
+      if (timerHandle === 0) {
+        spinStart = new Date().getTime()
+        maxSpeed = Math.PI / segments.length
+        frames = 0
+        timerHandle = setInterval(onTimerTick, timerDelay)
+      }
+
   }
-  
+
   const onTimerTick = () => {
+    console.log("onTimerTick")
     frames++
     draw()
     const duration = new Date().getTime() - spinStart
@@ -119,7 +122,7 @@ import React, { useEffect, useState } from 'react'
     ctx.save()
     ctx.translate(centerX, centerY)
     ctx.rotate((lastAngle + angle) / 2)
-    ctx.fillStyle = primaryColor 
+    ctx.fillStyle = primaryColor
     ctx.lineWidth = 10
     ctx.font = 'bolder 1.75vw Arial_Black'
     ctx.fillText(value.substr(0, 21), size / 2 + 20, 0)
@@ -154,16 +157,13 @@ import React, { useEffect, useState } from 'react'
 
   }
 
-  
   // Draw spin button 
   const drawNeedle = () => {
     const ctx = canvasContext
-    if (isStarted === false) {
-      const spinBtn = new Image()
-      spinBtn.setAttribute('id', 'btn--spin')
-      spinBtn.src = "https://eventfinity-production-assets.s3.amazonaws.com/materials/742941/original/SPIN.png"
-      spinBtn.onload = function() {ctx.drawImage(spinBtn, 235, 195, 140, 175)}
-    }
+    const spinBtn = new Image()
+    spinBtn.setAttribute('id', 'btn--spin')
+    spinBtn.src = "https://eventfinity-production-assets.s3.amazonaws.com/materials/742941/original/SPIN.png"
+    spinBtn.onload = function() {ctx.drawImage(spinBtn, 235, 195, 140, 175)}
     const change = angleCurrent + Math.PI / 2
     let i = segments.length - Math.floor((change / (Math.PI * 2)) * segments.length) - 1
     if (i < 0) i = i + segments.length
@@ -176,13 +176,16 @@ import React, { useEffect, useState } from 'react'
   }
 
   return (
-    <div id='wheel'>
-      <canvas
-        id='canvas'
-        width='1000'
-        height='800'
-        style={{ pointerEvents: isFinished ? 'none' : 'auto' }}
-      />
-    </div>
+    <>
+      <SpinButton isStarted={isStarted} />
+      <div id='wheel'>
+        <canvas
+          id='canvas'
+          width='1000'
+          height='800'
+          style={{ pointerEvents: isFinished ? 'none' : 'auto' }}
+        />
+      </div>
+    </>
   )
 }

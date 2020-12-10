@@ -1,0 +1,12 @@
+#btn--spin img {
+    height: 16vw;
+    margin-left: 43.5vw;
+    margin-top: 17.5vw;
+    position: absolute;
+    width: 13vw;
+    z-index: 1;
+}
+
+#wheel {
+    z-index: -1;
+}
