@@ -4,7 +4,7 @@ import useSound from 'use-sound';
 import click from '../assets/click.mp3';
 import wheel from '../assets/wheel.mp3';
 import { Guess } from '../guess/Guess';
-import 'react-wheel-of-prizes/dist/index.css';
+// import 'react-wheel-of-prizes/dist/index.css';
 
 export const Wheel = () => {
   
@@ -94,8 +94,7 @@ export const Wheel = () => {
         segments={segments}
         segColors={segColors}
         primaryColor='white'
-        contrastColor='black'
-        buttonText='SPIN'
+        contrastColor='#662D91'
         onFinished={
           (winner) => onFinished(winner)
         }

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { SpinButton } from './SpinButton'
+import './Wheel.css'
 
 export const WheelComponent = ({
   segments,
   segColors,
   winningSegment,
   onFinished,
-  primaryColor,
+  primaryColor
 }) => {
   let currentSegment = ''
   const [isFinished, setFinished] = useState(false)
@@ -59,12 +59,12 @@ export const WheelComponent = ({
     setIsStarted(true)
     console.log("spinning", isStarted)
     // eslint-disable-next-line no-unused-vars
-      if (timerHandle === 0) {
-        spinStart = new Date().getTime()
-        maxSpeed = Math.PI / segments.length
-        frames = 0
-        timerHandle = setInterval(onTimerTick, timerDelay)
-      }
+    if (timerHandle === 0) {
+      spinStart = new Date().getTime()
+      maxSpeed = Math.PI / segments.length
+      frames = 0
+      timerHandle = setInterval(onTimerTick, timerDelay)
+    }
 
   }
 
@@ -155,19 +155,58 @@ export const WheelComponent = ({
     ctx.strokeStyle = primaryColor
     ctx.stroke()
 
+    // Draw center circle
+    ctx.beginPath()
+    ctx.arc(centerX, centerY, 50, 0, PI2, false)
+    ctx.closePath()
+    ctx.lineWidth = 10
+    ctx.strokeStyle = primaryColor
+
+    
+    // Define the gradient
+    const gradient = ctx.createLinearGradient(300, 150, 620, 235) // starting points of x & y-axes, ending points of x & y-axes
+    gradient.addColorStop(0, 'red')
+    gradient.addColorStop(0.3, 'blue')
+    
+    // Draw circle container for gradient
+    ctx.fillStyle = gradient // define the fill
+    ctx.beginPath() // start the circle drawing
+    ctx.arc(centerX, centerY, 50, 0, PI2, false) // define the arc(path) of the circle
+    ctx.fill() // fill the circle with the specified fillStyle
+    ctx.closePath()
+    
+    // Draw 'SPIN' in center circle
+    ctx.font = 'bolder 2.75vw Arial_Outline'
+    ctx.fillStyle = primaryColor
+    ctx.textAlign = 'center'
+    ctx.fillText('SPIN', centerX, centerY + 3)
+    ctx.stroke()
   }
 
-  // Draw spin button 
+  // Draw needle on spin button 
   const drawNeedle = () => {
     const ctx = canvasContext
-    const spinBtn = new Image()
-    spinBtn.setAttribute('id', 'btn--spin')
-    spinBtn.src = "https://eventfinity-production-assets.s3.amazonaws.com/materials/742941/original/SPIN.png"
-    spinBtn.onload = function() {ctx.drawImage(spinBtn, 235, 195, 140, 175)}
+    ctx.lineWidth = 1
+    ctx.strokeStyle = primaryColor
+    ctx.fillStyle = primaryColor
+    ctx.beginPath()
+    ctx.moveTo(centerX + 20, centerY - 50)
+    ctx.lineTo(centerX - 20, centerY - 50)
+    ctx.lineTo(centerX, centerY - 70)
+    ctx.closePath()
+    ctx.fill()
     const change = angleCurrent + Math.PI / 2
-    let i = segments.length - Math.floor((change / (Math.PI * 2)) * segments.length) - 1
+    let i =
+      segments.length -
+      Math.floor((change / (Math.PI * 2)) * segments.length) -
+      1
     if (i < 0) i = i + segments.length
+    ctx.textAlign = 'center'
+    ctx.textBaseline = 'middle'
+    ctx.fillStyle = primaryColor || 'black'
+    ctx.font = 'bolder 1.75vw Arial_Black'
     currentSegment = segments[i]
+    isStarted && ctx.fillText(currentSegment, centerX + 10, centerY + size + 50)
   }
 
   const clear = () => {
@@ -177,7 +216,6 @@ export const WheelComponent = ({
 
   return (
     <>
-      <SpinButton isStarted={isStarted} />
       <div id='wheel'>
         <canvas
           id='canvas'

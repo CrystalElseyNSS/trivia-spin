@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Arial_Outline;
+    src: url(https://eventfinity-production-assets.s3.amazonaws.com/materials/744341/original/Arialic-Hollow.ttf);
+  }
+
 #btn--spin img {
     height: 16vw;
     margin-left: 43.5vw;
