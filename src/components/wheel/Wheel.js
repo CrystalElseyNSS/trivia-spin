@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { WheelComponent } from './WheelBuild';
+import { WheelComponent } from './WheelCanvas';
 import useSound from 'use-sound';
 import click from '../assets/click.mp3';
 import wheel from '../assets/wheel.mp3';
 import { Guess } from '../guess/Guess';
-// import 'react-wheel-of-prizes/dist/index.css';
 
 export const Wheel = () => {
   
@@ -48,8 +47,8 @@ export const Wheel = () => {
       setColor("#00B3BF")
       setPoints(400)
     } else if (winner === segments[1]) {
-      setQuestion("___  ___ was hired as the first paint chemist in the industry")
-      setWord('PERCY NEYMAN')
+      setQuestion("Percy ___ was hired as the first paint chemist in the industry")
+      setWord('NEYMAN')
       setColor("#FF4DBA")
       setPoints(600)
     } else if (winner === segments[2]) {
@@ -93,8 +92,6 @@ export const Wheel = () => {
       <WheelComponent
         segments={segments}
         segColors={segColors}
-        primaryColor='white'
-        contrastColor='#662D91'
         onFinished={
           (winner) => onFinished(winner)
         }

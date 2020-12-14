@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import './Wheel.css'
 
 export const WheelComponent = ({
   segments,
   segColors,
   winningSegment,
   onFinished,
-  primaryColor
 }) => {
   let currentSegment = ''
   const [isFinished, setFinished] = useState(false)
@@ -27,10 +25,16 @@ export const WheelComponent = ({
   useEffect(() => {
     wheelInit()
     setTimeout(() => {
-      window.scrollTo(0, 2)
+      window.scrollTo(0, 3)
     }, 0)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  window.onload = function() {
+    initCanvas()
+    draw()
+  }
+
   const wheelInit = () => {
     initCanvas()
     draw()
@@ -65,7 +69,6 @@ export const WheelComponent = ({
       frames = 0
       timerHandle = setInterval(onTimerTick, timerDelay)
     }
-
   }
 
   const onTimerTick = () => {
@@ -122,9 +125,9 @@ export const WheelComponent = ({
     ctx.save()
     ctx.translate(centerX, centerY)
     ctx.rotate((lastAngle + angle) / 2)
-    ctx.fillStyle = primaryColor
+    ctx.fillStyle = 'white'
     ctx.lineWidth = 10
-    ctx.font = 'bolder 1.75vw Arial_Black'
+    ctx.font = "bolder 1.75vw 'Arial Black'"
     ctx.fillText(value.substr(0, 21), size / 2 + 20, 0)
     ctx.restore()
   }
@@ -137,10 +140,10 @@ export const WheelComponent = ({
     const len = segments.length
     const PI2 = Math.PI * 2
     ctx.lineWidth = 5
-    ctx.strokeStyle = primaryColor
+    ctx.strokeStyle = 'white'
     ctx.textBaseline = 'middle'
     ctx.textAlign = 'center'
-    ctx.font = 'bolder 1.75vw Arial_Black'
+    ctx.font = "bolder 1.75vw 'Arial Black'"
     for (let i = 1; i <= len; i++) {
       const angle = PI2 * (i / len) + angleCurrent
       drawSegment(i - 1, lastAngle, angle)
@@ -152,7 +155,7 @@ export const WheelComponent = ({
     ctx.arc(centerX, centerY, size, 0, PI2, false)
     ctx.closePath()
     ctx.lineWidth = 10
-    ctx.strokeStyle = primaryColor
+    ctx.strokeStyle = 'white'
     ctx.stroke()
 
     // Draw center circle
@@ -160,9 +163,8 @@ export const WheelComponent = ({
     ctx.arc(centerX, centerY, 50, 0, PI2, false)
     ctx.closePath()
     ctx.lineWidth = 10
-    ctx.strokeStyle = primaryColor
+    ctx.strokeStyle = 'white'
 
-    
     // Define the gradient
     const gradient = ctx.createLinearGradient(300, 150, 620, 235) // starting points of x & y-axes, ending points of x & y-axes
     gradient.addColorStop(0, 'red')
@@ -172,12 +174,12 @@ export const WheelComponent = ({
     ctx.fillStyle = gradient // define the fill
     ctx.beginPath() // start the circle drawing
     ctx.arc(centerX, centerY, 50, 0, PI2, false) // define the arc(path) of the circle
-    ctx.fill() // fill the circle with the specified fillStyle
     ctx.closePath()
+    ctx.fill() // fill the circle with the specified fillStyle
     
     // Draw 'SPIN' in center circle
-    ctx.font = 'bolder 2.75vw Arial_Outline'
-    ctx.fillStyle = primaryColor
+    ctx.font = 'bolder 2.5vw Arial_Outline'
+    ctx.fillStyle = 'white'
     ctx.textAlign = 'center'
     ctx.fillText('SPIN', centerX, centerY + 3)
     ctx.stroke()
@@ -187,8 +189,8 @@ export const WheelComponent = ({
   const drawNeedle = () => {
     const ctx = canvasContext
     ctx.lineWidth = 1
-    ctx.strokeStyle = primaryColor
-    ctx.fillStyle = primaryColor
+    ctx.strokeStyle = 'white'
+    ctx.fillStyle = 'white'
     ctx.beginPath()
     ctx.moveTo(centerX + 20, centerY - 50)
     ctx.lineTo(centerX - 20, centerY - 50)
@@ -203,8 +205,8 @@ export const WheelComponent = ({
     if (i < 0) i = i + segments.length
     ctx.textAlign = 'center'
     ctx.textBaseline = 'middle'
-    ctx.fillStyle = primaryColor || 'black'
-    ctx.font = 'bolder 1.75vw Arial_Black'
+    ctx.fillStyle = 'white'
+    ctx.font = "bolder 1.75vw 'Arial Black'"
     currentSegment = segments[i]
     isStarted && ctx.fillText(currentSegment, centerX + 10, centerY + size + 50)
   }

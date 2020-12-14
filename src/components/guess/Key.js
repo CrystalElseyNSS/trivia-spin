@@ -1,7 +1,7 @@
-import React from 'react';
-import './Guess.css';
+import React from 'react'
+import '../../app/App.css'
 
-export const Char = (props) => {
+export const Key = (props) => {
 
   const { value, reveal, color } = props
 

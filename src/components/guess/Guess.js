@@ -2,16 +2,17 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { PointsContext } from '../../providers/PointsProvider';
 import { KeyBoard } from './KeyBoard';
-import { Char } from './Char';
+import { Key } from './Key';
 import useSound from 'use-sound';
 import trombone from '../assets/trombone.mp3';
 import click from '../assets/click.mp3';
 import Confetti from 'react-confetti'
-import './Guess.css';
+import '../../app/App.css'
 
 export const Guess = (word) => {
 
   const wordStr = word.word
+  console.log(wordStr)
   const color = word.color
   const question = word.question
   const points = word.points
@@ -88,8 +89,7 @@ export const Guess = (word) => {
                   {(new Array(wordStr.length)).fill(0).map((e, i) => {
                     const c = wordStr.charAt(i)
                     const reveal = guesses.join('').indexOf(c) >= 0
-                    if (c === ' ') { return <div style={{width: "4vw", marginRight: "2%"}}></div> }
-                    return (<Char key={i} value={c} reveal={reveal} color={color} />)
+                    return (<Key key={i} value={c} reveal={reveal} color={color} />)
                   })}
                 </div>
                 <div>
