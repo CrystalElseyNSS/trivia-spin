@@ -1,8 +1,3 @@
-@font-face {
-  font-family: Arial_Outline;
-  src: url('../components/assets/Arialic-Hollow.ttf');
-}
-
 body {
   background-image: url("https://eventfinity-production-assets.s3.amazonaws.com/materials/743361/original/Games-Background.png");
   background-repeat: no-repeat;

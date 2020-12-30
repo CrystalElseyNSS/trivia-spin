@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { PointsContext } from '../../providers/PointsProvider';
 import { KeyBoard } from './KeyBoard';
 import { Key } from './Key';
+// import { DrawStar } from '../confetti/DrawStar';
 import useSound from 'use-sound';
 import trombone from '../assets/trombone.mp3';
 import click from '../assets/click.mp3';
@@ -64,11 +65,16 @@ export const Guess = (word) => {
 
   return (
     <>
-
       { hasWon ?
         <div className="gameOverContainer">
-          <h1 className="gameOver">{points} POINTS! 
-            <Confetti width={width} height={height} numberOfPieces={800} gravity={0.2}></Confetti>
+          <h1 className="gameOver">{points} POINTS!
+            <Confetti
+              width={width}
+              height={height}
+              numberOfPieces={900}
+              gravity={0.2}
+              // drawShape={DrawStar}
+            ></Confetti>
           </h1>
         </div>
         :
@@ -93,7 +99,7 @@ export const Guess = (word) => {
                   })}
                 </div>
                 <div>
-                    <div id="counter" style={{ backgroundColor: color }}>{guessCount}</div>
+                  <div id="counter" style={{ backgroundColor: color }}>{guessCount}</div>
                 </div>
               </div>
               <div>

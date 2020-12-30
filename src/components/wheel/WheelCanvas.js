@@ -178,7 +178,7 @@ export const WheelComponent = ({
     ctx.fill() // fill the circle with the specified fillStyle
     
     // Draw 'SPIN' in center circle
-    ctx.font = 'bolder 2.5vw Arial_Outline'
+    ctx.font = 'bolder 2.25vw Arial Black'
     ctx.fillStyle = 'white'
     ctx.textAlign = 'center'
     ctx.fillText('SPIN', centerX, centerY + 3)
