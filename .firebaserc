@@ -1,5 +1,14 @@
 {
   "projects": {
-    "default": "prize-wheel-game"
+    "default": "sw-leaderboard"
+  },
+  "targets": {
+    "sw-leaderboard": {
+      "hosting": {
+        "wheel": [
+          "sw-wheel-game"
+        ]
+      }
+    }
   }
 }

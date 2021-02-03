@@ -13,7 +13,6 @@ import '../../app/App.css'
 export const Guess = (word) => {
 
   const wordStr = word.word
-  console.log(wordStr)
   const color = word.color
   const question = word.question
   const points = word.points

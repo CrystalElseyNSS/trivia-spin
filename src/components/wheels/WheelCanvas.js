@@ -61,7 +61,6 @@ export const WheelComponent = ({
 
   const spin = () => {
     setIsStarted(true)
-    console.log("spinning", isStarted)
     // eslint-disable-next-line no-unused-vars
     if (timerHandle === 0) {
       spinStart = new Date().getTime()
@@ -72,7 +71,6 @@ export const WheelComponent = ({
   }
 
   const onTimerTick = () => {
-    console.log("onTimerTick")
     frames++
     draw()
     const duration = new Date().getTime() - spinStart
@@ -127,7 +125,7 @@ export const WheelComponent = ({
     ctx.rotate((lastAngle + angle) / 2)
     ctx.fillStyle = 'white'
     ctx.lineWidth = 10
-    ctx.font = "bolder 1.75vw 'Arial Black'"
+    ctx.font = "bolder 1.7vw 'Arial Black'"
     ctx.fillText(value.substr(0, 21), size / 2 + 20, 0)
     ctx.restore()
   }
@@ -143,7 +141,7 @@ export const WheelComponent = ({
     ctx.strokeStyle = 'white'
     ctx.textBaseline = 'middle'
     ctx.textAlign = 'center'
-    ctx.font = "bolder 1.75vw 'Arial Black'"
+    ctx.font = "bolder 1.5vw 'Arial Black'"
     for (let i = 1; i <= len; i++) {
       const angle = PI2 * (i / len) + angleCurrent
       drawSegment(i - 1, lastAngle, angle)
@@ -178,7 +176,7 @@ export const WheelComponent = ({
     ctx.fill() // fill the circle with the specified fillStyle
     
     // Draw 'SPIN' in center circle
-    ctx.font = 'bolder 2.25vw Arial Black'
+    ctx.font = 'bolder 2.3vw Arial Black'
     ctx.fillStyle = 'white'
     ctx.textAlign = 'center'
     ctx.fillText('SPIN', centerX, centerY + 3)
@@ -206,7 +204,7 @@ export const WheelComponent = ({
     ctx.textAlign = 'center'
     ctx.textBaseline = 'middle'
     ctx.fillStyle = 'white'
-    ctx.font = "bolder 1.75vw 'Arial Black'"
+    ctx.font = "bolder 1.5vw 'Arial Black'"
     currentSegment = segments[i]
     isStarted && ctx.fillText(currentSegment, centerX + 10, centerY + size + 50)
   }

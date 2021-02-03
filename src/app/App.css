@@ -15,7 +15,7 @@ body {
 #guessContainer {
   background-color: white;
   border: 8px solid turquoise;
-  height: 80vh;
+  height: 85vh;
   margin: 5% auto;
   padding-left: 2%;
   padding-right: 2%;
@@ -26,7 +26,7 @@ body {
 .question {
   color: #0067b0;
   font-family: 'Arial Black';
-  font-size: 4.25vw;
+  font-size: 3.8vw;
   text-align: center;
 }
 
