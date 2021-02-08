@@ -128,7 +128,9 @@ textarea {
 .gameOver {
   color: #0067b0;
   font-family: 'Arial Black';
-  font-size: 9vw;
+  font-size: 5vw;
+  margin-bottom: 0;
+  padding: 5%;
   text-align: center;
   z-index: 1;
 }

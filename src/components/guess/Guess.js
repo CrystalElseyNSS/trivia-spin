@@ -40,13 +40,10 @@ export const Guess = (word) => {
   const win = () => {
     setHasWon(true)
     addPoints(points, player, booth)
-    console.log(gameOverText)
-    console.log(points, player, booth)
   }
 
   const lose = () => {
     setHasLost(true)
-    console.log(gameOverText)
     playTrombone()
   }
 
@@ -69,23 +66,14 @@ export const Guess = (word) => {
     <>
       { hasWon ?
         <div className="gameOverContainer">
-          <h1 className="gameOver">{gameOverText}
-            <Confetti
-              width={width}
-              height={height}
-              numberOfPieces={900}
-              gravity={0.2}
-              // drawShape={DrawStar}
-            ></Confetti>
-          </h1>
+          <Confetti width={width} height={height} numberOfPieces={900} gravity={0.2} ></Confetti>
+          <h1 className="gameOver">{gameOverText}</h1>
         </div>
         :
         <div>
           {hasLost ?
             <div className="gameOverContainer">
-              <div>
-                <h1 className="gameOver">SORRY! TRY AGAIN AT ANOTHER BOOTH!</h1>
-              </div>
+                <h1 className="gameOver">TRY AGAIN</h1>
             </div>
             :
             <div id="guessContainer">
