@@ -11,6 +11,7 @@ export const Intex = () => {
   const [ color, setColor ] = useState("")
   const [ question, setQuestion ] = useState("")
   const [ points, setPoints ] = useState(0)
+  const [ boothId, setBoothId ] = useState('')
   const [ showGuess, setShowGuess ] = useState(false)
   const [ playClick ] = useSound(click, { volume: 0.25 })
   const [ playWheel ] = useSound(wheel, { volume: 0.25 })
@@ -82,12 +83,13 @@ export const Intex = () => {
       setColor("#662D91")
       setPoints(800)
     } 
+    setBoothId('327751977')
     setShowGuess(true)
   }
-  // #142CA2 #DA0D21
+
   return (
     <>
-      { showGuess ? <Guess word={word} color={color} question={question} points={points}/> : 
+      { showGuess ? <Guess word={word} color={color} question={question} points={points} boothId={boothId}/> : 
       <div onClick={playWheel}>
       <WheelComponent
         segments={segments}

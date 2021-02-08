@@ -5,16 +5,16 @@ import click from '../assets/click.mp3';
 import wheel from '../assets/wheel.mp3';
 import { Guess } from '../guess/Guess';
 
-export const Titan = () => {
-  
+export const Titan = ( ) => {
+  const [ boothId, setBoothId ] = useState("") 
   const [ word, setWord ] = useState("")
   const [ color, setColor ] = useState("")
   const [ question, setQuestion ] = useState("")
   const [ points, setPoints ] = useState(0)
-  const [ showGuess, setShowGuess ] = useState(false)
+  const [ showGuess, setShowGuess ] = useState()
   const [ playClick ] = useSound(click, { volume: 0.25 })
-  const [ playWheel ] = useSound(wheel, { volume: 0.25 })
-           
+  const [ playWheel ] = useSound(wheel, { volume: 0.25 }) 
+  
   document.addEventListener('mousedown', playClick);
 
   const segments = [
@@ -38,7 +38,6 @@ export const Titan = () => {
     "#009245", // GREEN 
     "#662D91", // PURPLE
   ];
-  
 
   function onFinished(winner) {
     if (winner === segments[0]) {
@@ -82,12 +81,13 @@ export const Titan = () => {
       setColor("#662D91")
       setPoints(800)
     } 
+    setBoothId('327752107')
     setShowGuess(true)
   }
   // #142CA2 #DA0D21
   return (
     <>
-      { showGuess ? <Guess word={word} color={color} question={question} points={points}/> : 
+      { showGuess ? <Guess word={word} color={color} question={question} points={points} boothId={boothId}/> : 
       <div onClick={playWheel}>
       <WheelComponent
         segments={segments}

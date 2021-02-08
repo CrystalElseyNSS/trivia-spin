@@ -14,9 +14,9 @@ body {
 
 #guessContainer {
   background-color: white;
-  border: 8px solid turquoise;
-  height: 85vh;
-  margin: 5% auto;
+  border: 2px solid turquoise;
+  height: 90vh;
+  margin: 4% auto;
   padding-left: 2%;
   padding-right: 2%;
   width: 90vw;
@@ -28,6 +28,7 @@ body {
   font-family: 'Arial Black';
   font-size: 3.8vw;
   text-align: center;
+  width: 100%;
 }
 
 .question p {
@@ -80,7 +81,7 @@ body {
   border-radius: 5px;
   text-align: center;
   margin: 3% auto;
-  width: 80vw;
+  width: 100%;
 }
 
 #keys {
@@ -93,11 +94,11 @@ body {
   background-color: lightgray;
   border: 2px outset whitesmoke;
   border-radius: 50%;
-  font-size: 3.5vw;
-  height: 5vw;
-  line-height: 5vw;
+  font-size: 3vw;
+  height: 6vw;
+  /* line-height: 6.5vw; */
   margin: 0.25vw;
-  width: 5vw;
+  width: 6vw;
 }
 
 .disabled {
@@ -113,9 +114,12 @@ textarea {
 }
 
 .gameOverContainer {
+  align-items: center;
   background-color: white;
-  border: 8px solid turquoise;
+  border: 2px solid turquoise;
+  display: flex;
   height: 80vh;
+  justify-content: center;
   margin: 5% auto;
   width: 90vw;
   z-index: -1;
@@ -124,8 +128,7 @@ textarea {
 .gameOver {
   color: #0067b0;
   font-family: 'Arial Black';
-  font-size: 10vw;
-  margin-top: 15%;
+  font-size: 9vw;
   text-align: center;
   z-index: 1;
 }

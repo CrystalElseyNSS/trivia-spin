@@ -1,23 +1,28 @@
-import React, { createContext } from 'react';
-
+import React, { createContext, useState } from 'react';
 
 export const PointsContext = createContext()
 
 export const PointsProvider = ({ children }) => {
+    const [gameOverText, setGameOverText] = useState("")
 
-    const addPoints = ( points ) => {
-        return fetch(`https://us-central1-leo-arcade.cloudfunctions.net/addIFramePoints?points=${points}&game=wheel`)
-        .then(res => res.json())
-    }
-
-    const addUserPoints = ( points, player ) => {
-        return fetch(`https://us-central1-leo-arcade.cloudfunctions.net/addPoints?points=${points}&player=${player}`)
-        .then(res => res.json())
+    const addPoints = (points, attendee, booth) => {
+        fetch(`https://us-central1-sw-leaderboard.cloudfunctions.net/checkPlatinumStatusFromGame?attendee=${attendee}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log("data: " + data)
+                if (data === false) {
+                    setGameOverText('Visit all Platinum booths to earn points')
+                } else if (data === true) {
+                    setGameOverText(`${points} POINTS!`)
+                    return fetch(`https://us-central1-sw-leaderboard.cloudfunctions.net/addPoints?points=${points}&attendee=${attendee}&awarded=${booth}wheelgame`)
+                        .then(response => response.json())
+                }
+            })
     }
 
     return (
         <>
-            <PointsContext.Provider value={{ addPoints, addUserPoints }}>
+            <PointsContext.Provider value={{ addPoints, gameOverText }}>
                 {children}
             </PointsContext.Provider>
         </>

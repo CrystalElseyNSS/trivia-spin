@@ -16,20 +16,21 @@ export const Guess = (word) => {
   const color = word.color
   const question = word.question
   const points = word.points
+  const booth = word.boothId
   const count = wordStr.length
   const [guesses, setGuesses] = useState([])
   const [hasWon, setHasWon] = useState(false)
   const [hasLost, setHasLost] = useState(false)
-  const { addUserPoints } = useContext(PointsContext)
-  const [guessCount, setGuessCount] = useState(10)
+  const { gameOverText, addPoints } = useContext(PointsContext)
+  const [guessCount, setGuessCount] = useState(18)
   const width = window.innerWidth
   const height = window.innerWidth
   const [playTrombone] = useSound(trombone, { volume: 0.25 })
   const [playClick] = useSound(click, { volume: 0.1 })
 
   document.addEventListener('mousedown', playClick);
-  const { player } = useParams()
 
+  const { player } = useParams()
   const guess = (c) => {
     if (guesses.join('').indexOf(c) < 0)
       setGuesses([...guesses, c])
@@ -38,11 +39,14 @@ export const Guess = (word) => {
 
   const win = () => {
     setHasWon(true)
-    addUserPoints(points, player)
+    addPoints(points, player, booth)
+    console.log(gameOverText)
+    console.log(points, player, booth)
   }
 
   const lose = () => {
     setHasLost(true)
+    console.log(gameOverText)
     playTrombone()
   }
 
@@ -61,12 +65,11 @@ export const Guess = (word) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [guesses])
-
   return (
     <>
       { hasWon ?
         <div className="gameOverContainer">
-          <h1 className="gameOver">{points} POINTS!
+          <h1 className="gameOver">{gameOverText}
             <Confetti
               width={width}
               height={height}
@@ -81,7 +84,7 @@ export const Guess = (word) => {
           {hasLost ?
             <div className="gameOverContainer">
               <div>
-                <h1 className="gameOver">TRY AGAIN</h1>
+                <h1 className="gameOver">SORRY! TRY AGAIN AT ANOTHER BOOTH!</h1>
               </div>
             </div>
             :

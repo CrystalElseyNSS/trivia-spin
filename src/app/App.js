@@ -14,13 +14,14 @@ import { SherwinNational } from '../components/wheels/SherwinNational';
 import './App.css';
 
 export const App = () => {
+
   return (
     <div>
       <Router>
         <PointsProvider>
           <Switch>
-            <Route path="/327752117/:player">< Wheel /></Route> 
-            <Route path="/327752107/:player">< Titan /></Route> 
+            <Route path="/327752117/:player" >< Wheel /></Route> 
+            <Route path="/327752107/:player" >< Titan /></Route> 
             <Route path="/327752057/:player">< Werner /></Route> 
             <Route path="/327752037/:player">< USGypsum /></Route> 
             <Route path="/327751567/:player">< Festool /></Route> 

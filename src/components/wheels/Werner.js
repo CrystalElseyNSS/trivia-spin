@@ -12,6 +12,7 @@ export const Werner = () => {
   const [ question, setQuestion ] = useState("")
   const [ points, setPoints ] = useState(0)
   const [ showGuess, setShowGuess ] = useState(false)
+  const [ boothId, setBoothId ] = useState("") 
   const [ playClick ] = useSound(click, { volume: 0.25 })
   const [ playWheel ] = useSound(wheel, { volume: 0.25 })
            
@@ -83,11 +84,12 @@ export const Werner = () => {
       setPoints(800)
     } 
     setShowGuess(true)
+    setBoothId('327752057')
   }
   // #142CA2 #DA0D21
   return (
     <>
-      { showGuess ? <Guess word={word} color={color} question={question} points={points}/> : 
+      { showGuess ? <Guess word={word} color={color} question={question} points={points} boothId={boothId}/> : 
       <div onClick={playWheel}>
       <WheelComponent
         segments={segments}
