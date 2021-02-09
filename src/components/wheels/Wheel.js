@@ -87,7 +87,7 @@ export const Wheel = () => {
   // #142CA2 #DA0D21
   return (
     <>
-      { showGuess ? <Guess word={word} color={color} question={question} points={points}/> : 
+      { showGuess ? <Guess word={word} color={color} question={question} points={points} setShowGuess={setShowGuess} setWord={setWord} setColor={setColor} setQuestion={setQuestion} setPoints={setPoints}/> : 
       <div onClick={playWheel}>
       <WheelComponent
         segments={segments}

@@ -16,6 +16,11 @@ export const Guess = (word) => {
   const color = word.color
   const question = word.question
   const points = word.points
+  const setShowGuess = word.setShowGuess
+  const setWord = word.setWord
+  const setColor = word.setColor
+  const setQuestion = word.setQuestion
+  const setPoints = word.setPoints
   const booth = word.boothId
   const count = wordStr.length
   const [guesses, setGuesses] = useState([])
@@ -47,6 +52,14 @@ export const Guess = (word) => {
     playTrombone()
   }
 
+  const reset = () => {
+    setWord("")
+    setColor("")
+    setQuestion("")
+    setPoints("")
+    setShowGuess(false)
+  }
+
   useEffect(() => {
     if (guesses.length > 0) {
       const guessesStr = guesses.join('')
@@ -68,12 +81,14 @@ export const Guess = (word) => {
         <div className="gameOverContainer">
           <Confetti width={width} height={height} numberOfPieces={900} gravity={0.2} ></Confetti>
           <h1 className="gameOver">{gameOverText}</h1>
+          <div class="playAgain" onClick={reset}>PLAY AGAIN</div>
         </div>
         :
         <div>
           {hasLost ?
             <div className="gameOverContainer">
-                <h1 className="gameOver">TRY AGAIN</h1>
+                <h1 className="gameOver">SORRY, TRY AGAIN</h1>
+                <div class="playAgain" onClick={reset}>PLAY AGAIN</div>
             </div>
             :
             <div id="guessContainer">
