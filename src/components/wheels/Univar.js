@@ -19,14 +19,14 @@ export const Univar = () => {
   document.addEventListener('mousedown', playClick);
 
   const segments = [
-    '400 POINTS',
-    '600 POINTS',
-    '200 POINTS',
-    '100 POINTS',
-    '300 POINTS',
-    '700 POINTS',
-    '500 POINTS',
-    '800 POINTS'
+    '40 POINTS',
+    '60 POINTS',
+    '20 POINTS',
+    '10 POINTS',
+    '30 POINTS',
+    '70 POINTS',
+    '50 POINTS',
+    '80 POINTS'
   ];
   
   const segColors = [
@@ -46,42 +46,42 @@ export const Univar = () => {
       setQuestion("When did Univar and Nexeo Solutions merge as companies?")
       setWord('2019')
       setColor("#00B3BF")
-      setPoints(400)
+      setPoints(40)
     } else if (winner === segments[1]) {
       setQuestion("How many suppliers does Univar Solutions have?")
       setWord('140')
       setColor("#FF4DBA")
-      setPoints(600)
+      setPoints(60)
     } else if (winner === segments[2]) {
       setQuestion("How many industries does Univar Solutions service?")
       setWord('16')
       setColor("#EB2931")
-      setPoints(200)
+      setPoints(20)
     } else if (winner === segments[3]) {
       setQuestion("How many service categories does Univar Solutions cater to?")
       setWord('14')
       setColor("#0067B0")
-      setPoints(100)
+      setPoints(10)
     }else if (winner === segments[4]) {
       setQuestion("The Startex products we supply to S-W come from the Co-__ group")
       setWord('PACK')
       setColor("#FBB03B")
-      setPoints(300)
+      setPoints(30)
     } else if (winner === segments[5]) {
       setQuestion("How many product categories does Univar Solution have?")
       setWord('14')
       setColor("#F15A24")
-      setPoints(700)
+      setPoints(70)
     } else if (winner === segments[6]) {
       setQuestion('What was the #1 category S-W procured from Univar Solutions in 2020?')
       setWord('THINNERS')
       setColor("#009245")
-      setPoints(500)
+      setPoints(50)
     } else if (winner === segments[7]) {
       setQuestion("Univar carries a ___ ranking in sustainability from EcoVadis")
       setWord('SILVER')
       setColor("#662D91")
-      setPoints(800)
+      setPoints(80)
     } 
     setBoothId('327752047')
     setShowGuess(true)

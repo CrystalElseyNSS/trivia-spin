@@ -19,14 +19,14 @@ export const USGypsum = () => {
   document.addEventListener('mousedown', playClick);
 
   const segments = [
-    '400 POINTS',
-    '600 POINTS',
-    '200 POINTS',
-    '100 POINTS',
-    '300 POINTS',
-    '700 POINTS',
-    '500 POINTS',
-    '800 POINTS'
+    '40 POINTS',
+    '60 POINTS',
+    '20 POINTS',
+    '10 POINTS',
+    '30 POINTS',
+    '70 POINTS',
+    '50 POINTS',
+    '80 POINTS'
   ];
   
   const segColors = [
@@ -46,42 +46,42 @@ export const USGypsum = () => {
       setQuestion("USG Sheetrock® Brand All Purpose joint compound is a ___ weight joint compound")
       setWord('CONVENTIONAL')
       setColor("#00B3BF")
-      setPoints(400)
+      setPoints(40)
     } else if (winner === segments[1]) {
       setQuestion("USG's finishing products include both ready-mix and ___-type joint compounds")
       setWord('SETTING')
       setColor("#FF4DBA")
-      setPoints(600)
+      setPoints(60)
     } else if (winner === segments[2]) {
       setQuestion("USG ___ Brand has the highest Net Promoter score in its category")
       setWord('SHEETROCK')
       setColor("#EB2931")
-      setPoints(200)
+      setPoints(20)
     } else if (winner === segments[3]) {
       setQuestion("USG Sheetrock® Brand ___ compound weighs ~40% less than conventional compounds")
       setWord('ULTRALIGHTWEIGHT')
       setColor("#0067B0")
-      setPoints(100)
+      setPoints(10)
     }else if (winner === segments[4]) {
       setQuestion("In cold weather applications of joint ___, building temps should stay above 55 °F")
       setWord('FINISHING')
       setColor("#FBB03B")
-      setPoints(300)
+      setPoints(30)
     } else if (winner === segments[5]) {
       setQuestion("USG Sheetrock® Brand Dust Control meets ___ silica requirements & reduces dust")
       setWord('OSHA')
       setColor("#F15A24")
-      setPoints(700)
+      setPoints(70)
     } else if (winner === segments[6]) {
       setQuestion('USG Sheetrock® Brand Paper Joint Tape is sanded for increased ___')
       setWord('BOND')
       setColor("#009245")
-      setPoints(500)
+      setPoints(50)
     } else if (winner === segments[7]) {
       setQuestion("USG Sheetrock® Brand Plus 3 joint compound is a _________ joint compound")
       setWord('LIGHTWEIGHT')
       setColor("#662D91")
-      setPoints(800)
+      setPoints(80)
     } 
     setBoothId('327752037')
     setShowGuess(true)

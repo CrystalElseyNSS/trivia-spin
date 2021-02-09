@@ -18,14 +18,14 @@ export const Wheel = () => {
   document.addEventListener('mousedown', playClick);
 
   const segments = [
-    '400 POINTS',
-    '600 POINTS',
-    '200 POINTS',
-    '100 POINTS',
-    '300 POINTS',
-    '700 POINTS',
-    '500 POINTS',
-    '800 POINTS'
+    '40 POINTS',
+    '60 POINTS',
+    '20 POINTS',
+    '10 POINTS',
+    '30 POINTS',
+    '70 POINTS',
+    '50 POINTS',
+    '80 POINTS'
   ];
   
   const segColors = [
@@ -45,42 +45,42 @@ export const Wheel = () => {
       setQuestion("_______ Sherwin was one of two SHERWIN-WILLIAMS founders")
       setWord('HENRY')
       setColor("#00B3BF")
-      setPoints(400)
+      setPoints(40)
     } else if (winner === segments[1]) {
       setQuestion("Percy ___ was hired as the first paint chemist in the industry")
       setWord('NEYMAN')
       setColor("#FF4DBA")
-      setPoints(600)
+      setPoints(60)
     } else if (winner === segments[2]) {
       setQuestion("In what city was SHERWIN-WILLIAMS founded?")
       setWord('CLEVELAND')
       setColor("#EB2931")
-      setPoints(200)
+      setPoints(20)
     } else if (winner === segments[3]) {
       setQuestion("What's the 2020 Color of the Year?")
       setWord('NAVAL')
       setColor("#0067B0")
-      setPoints(100)
+      setPoints(10)
     }else if (winner === segments[4]) {
       setQuestion("What year was SHERWIN-WILLIAMS founded?")
       setWord('1866')
       setColor("#FBB03B")
-      setPoints(300)
+      setPoints(30)
     } else if (winner === segments[5]) {
       setQuestion("___ Williams was one of two SHERWIN-WILLIAMS founders")
       setWord('EDWARD')
       setColor("#F15A24")
-      setPoints(700)
+      setPoints(70)
     } else if (winner === segments[6]) {
       setQuestion('First patent for ready-mixed paint was taken out in ___')
       setWord('1867')
       setColor("#009245")
-      setPoints(500)
+      setPoints(50)
     } else if (winner === segments[7]) {
       setQuestion("First patent for ready-mixed paint was taken out by D.R. ___")
       setWord('AVERILL')
       setColor("#662D91")
-      setPoints(800)
+      setPoints(80)
     } 
     setShowGuess(true)
   }

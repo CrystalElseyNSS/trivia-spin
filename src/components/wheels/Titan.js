@@ -18,14 +18,14 @@ export const Titan = ( ) => {
   document.addEventListener('mousedown', playClick);
 
   const segments = [
-    '400 POINTS',
-    '600 POINTS',
-    '200 POINTS',
-    '500 POINTS',
-    '300 POINTS',
-    '700 POINTS',
-    '100 POINTS',
-    '800 POINTS'
+    '40 POINTS',
+    '60 POINTS',
+    '20 POINTS',
+    '50 POINTS',
+    '30 POINTS',
+    '70 POINTS',
+    '10 POINTS',
+    '80 POINTS'
   ];
   
   const segColors = [
@@ -44,42 +44,42 @@ export const Titan = ( ) => {
       setQuestion("The new pumping technology used on the Elite 3000, 3500 & 4500 is ____?")
       setWord('PERMASTROKE')
       setColor("#00B3BF")
-      setPoints(400)
+      setPoints(40)
     } else if (winner === segments[1]) {
       setQuestion("The name of Titan's new silicone & heavy body coatings sprayers is ____?")
       setWord('HYDRAX')
       setColor("#FF4DBA")
-      setPoints(600)
+      setPoints(60)
     } else if (winner === segments[2]) {
       setQuestion("Our #1 selling sprayer, the Titan 440, is part of what sprayer series?")
       setWord('IMPACT')
       setColor("#EB2931")
-      setPoints(200)
+      setPoints(20)
     } else if (winner === segments[3]) {
       setQuestion("What is the trade name of Titan's exclusive airless cut-in tool?")
       setWord('SPRAYGUIDE')
       setColor("#0067B0")
-      setPoints(500)
+      setPoints(50)
     }else if (winner === segments[4]) {
       setQuestion("What's the length of the warranty on Elite 3000, 3500 & 4500 fluid pumps?")
       setWord('LIFETIME')
       setColor("#FBB03B")
-      setPoints(300)
+      setPoints(30)
     } else if (winner === segments[5]) {
       setQuestion("What is the acronym used for Titan's online promotions redemption system?")
       setWord('THOR')
       setColor("#F15A24")
-      setPoints(700)
+      setPoints(70)
     } else if (winner === segments[6]) {
       setQuestion('What color flag does the Titan TR1 HEA Reversible tip have?')
       setWord('GREEN')
       setColor("#009245")
-      setPoints(100)
+      setPoints(10)
     } else if (winner === segments[7]) {
       setQuestion("In what state is Titan US headquarters located?")
       setWord('MINNESOTA')
       setColor("#662D91")
-      setPoints(800)
+      setPoints(80)
     } 
     setBoothId('327752107')
     setShowGuess(true)

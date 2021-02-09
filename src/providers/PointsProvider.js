@@ -6,7 +6,7 @@ export const PointsProvider = ({ children }) => {
     const [gameOverText, setGameOverText] = useState("")
 
     const addPoints = (points, attendee) => {
-        fetch(`https://us-central1-sw-leaderboard.cloudfunctions.net/checkPlatinumStatusFromGame?attendee=${attendee}`)
+        fetch(`https://us-central1-sw-leaderboard.cloudfunctions.net/checkPathStatusFromGame?attendee=${attendee}`)
             .then(response => response.json())
             .then(data => {
                 console.log("data: " + data)

@@ -19,14 +19,14 @@ export const Festool = () => {
   document.addEventListener('mousedown', playClick);
 
   const segments = [
-    '400 POINTS',
-    '600 POINTS',
-    '200 POINTS',
-    '100 POINTS',
-    '300 POINTS',
-    '700 POINTS',
-    '500 POINTS',
-    '800 POINTS'
+    '40 POINTS',
+    '60 POINTS',
+    '20 POINTS',
+    '10 POINTS',
+    '30 POINTS',
+    '70 POINTS',
+    '50 POINTS',
+    '80 POINTS'
   ];
   
   const segColors = [
@@ -46,42 +46,42 @@ export const Festool = () => {
       setQuestion("Can we arrange for more training through joint calls or group trainings?")
       setWord('YES')
       setColor("#00B3BF")
-      setPoints(400)
+      setPoints(40)
     } else if (winner === segments[1]) {
       setQuestion("Of tools/accessories/consumables, which is covered by a 30-day guarantee period?")
       setWord('TOOLS')
       setColor("#FF4DBA")
-      setPoints(600)
+      setPoints(60)
     } else if (winner === segments[2]) {
       setQuestion("Currently, how many tools can be ordered out of the DSC?")
       setWord('9')
       setColor("#EB2931")
-      setPoints(200)
+      setPoints(20)
     } else if (winner === segments[3]) {
       setQuestion("Can we order wood cutting tools or the blades and parts for DSC?")
       setWord('NO')
       setColor("#0067B0")
-      setPoints(100)
+      setPoints(10)
     }else if (winner === segments[4]) {
       setQuestion("How many years is the warranty on Festool tools and dust extractors? ")
       setWord('3')
       setColor("#FBB03B")
-      setPoints(300)
+      setPoints(30)
     } else if (winner === segments[5]) {
       setQuestion("What does the AC stand for on the 36 E AC dust extractor used with the Planex?")
       setWord('AUTOCLEAN')
       setColor("#F15A24")
-      setPoints(700)
+      setPoints(70)
     } else if (winner === segments[6]) {
       setQuestion('With the 36 E AC AUTOCLEAN function, the filter should ___ be cleaned by hand')
       setWord('OCCASIONALLY')
       setColor("#009245")
-      setPoints(500)
+      setPoints(50)
     } else if (winner === segments[7]) {
       setQuestion("Festoolusa.com/___ has info on our products available through Sherwin-Williams")
       setWord('PAINT')
       setColor("#662D91")
-      setPoints(800)
+      setPoints(80)
     } 
     setBoothId('327751567')
     setShowGuess(true)
