@@ -5,7 +5,7 @@ export const PointsContext = createContext()
 export const PointsProvider = ({ children }) => {
     const [gameOverText, setGameOverText] = useState("")
 
-    const addPoints = (points, attendee) => {
+    const addPoints = (points, attendee, booth) => {
         fetch(`https://us-central1-sw-leaderboard.cloudfunctions.net/checkPathStatusFromGame?attendee=${attendee}`)
             .then(response => response.json())
             .then(data => {
@@ -14,8 +14,8 @@ export const PointsProvider = ({ children }) => {
                     setGameOverText('NOT YET ELIGIBLE FOR POINTS. SEE LEADERBOARD FOR RULES!')
                 } else if (data === true) {
                     setGameOverText(`${points} POINTS!`)
-                    // return fetch(`https://us-central1-sw-leaderboard.cloudfunctions.net/addPoints?points=${points}&attendee=${attendee}&awarded=${booth}wheelgame`)
-                    return fetch(`https://us-central1-sw-leaderboard.cloudfunctions.net/addUnlimitedPoints?points=${points}&attendee=${attendee}`)
+                    return fetch(`https://us-central1-sw-leaderboard.cloudfunctions.net/addPoints?points=${points}&attendee=${attendee}&awarded=${booth}wheelgame${points}`)
+                    //return fetch(`https://us-central1-sw-leaderboard.cloudfunctions.net/addUnlimitedPoints?points=${points}&attendee=${attendee}`)
                         .then(response => response.json())
                 }
             })
