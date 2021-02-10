@@ -32,7 +32,7 @@ body {
 }
 
 .question p {
-  margin: 1.5% auto;
+  margin: 0 auto 1.5%;
 }
 
 .answerDiv {
@@ -134,6 +134,20 @@ textarea {
   padding: 5%;
   text-align: center;
   z-index: 1;
+}
+
+.goBack {
+  background-color: #0067b0;
+  border-radius: 10px;
+  color: #fff;
+  padding: 0.5vh 2vh;
+  font-size: 1.2vw;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 0;
+  margin-top: 1%;
+  text-align: center;
+  width: 6vw;
 }
 
 .playAgain {

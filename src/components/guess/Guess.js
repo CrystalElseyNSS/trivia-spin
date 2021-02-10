@@ -68,7 +68,10 @@ export const Guess = (word) => {
       { hasWon ?
         <div className="gameOverContainer">
           <Confetti width={width} height={height} numberOfPieces={900} gravity={0.2} ></Confetti>
-          <h1 className="gameOver">{gameOverText}</h1>
+          { gameOverText.length ?
+            <h1 className="gameOver">{gameOverText}</h1>
+            : <h1 className="gameOver">CHECKING YOUR ANSWER...</h1>
+          }
           <div className="playAgain" id="playAgainWin" onClick={() => resetGame()}>PLAY AGAIN</div>
         </div>
         :
@@ -80,6 +83,7 @@ export const Guess = (word) => {
             </div>
             :
             <div id="guessContainer">
+              <div className="goBack" onClick={() => resetGame()}>GO BACK</div>
               <div className="question">
                 <p>{question}</p>
               </div>

@@ -4,19 +4,24 @@ export const PointsContext = createContext()
 
 export const PointsProvider = ({ children }) => {
     const [gameOverText, setGameOverText] = useState("")
-
+    
     const addPoints = (points, attendee, booth) => {
         fetch(`https://us-central1-sw-leaderboard.cloudfunctions.net/checkPathStatusFromGame?attendee=${attendee}`)
             .then(response => response.json())
             .then(data => {
-                console.log("data: " + data)
                 if (data === false) {
                     setGameOverText('NOT YET ELIGIBLE FOR POINTS. SEE LEADERBOARD FOR RULES!')
                 } else if (data === true) {
-                    setGameOverText(`${points} POINTS!`)
                     return fetch(`https://us-central1-sw-leaderboard.cloudfunctions.net/addPoints?points=${points}&attendee=${attendee}&awarded=${booth}wheelgame${points}`)
-                        .then(response => response.json())
-                }
+                        .then(response => response.text())
+                        .then(text => {
+                            if (text === "points already awarded for this action") {
+                                setGameOverText("QUESTION ALREADY PLAYED. SPIN AGAIN!")
+                            } else if (text === "points added!") {
+                                setGameOverText(`WELL DONE! ${points} POINTS!`)
+                            }
+                        })
+                }          
             })
     }
 

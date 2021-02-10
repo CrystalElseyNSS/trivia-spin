@@ -58,8 +58,8 @@ export const USGypsum = () => {
       setColor("#EB2931")
       setPoints(20)
     } else if (winner === segments[3]) {
-      setQuestion("USG Sheetrock® Brand ___ compound weighs ~40% less than conventional compounds")
-      setWord('ULTRALIGHTWEIGHT')
+      setQuestion("Our ___ lightweight compound weighs ~40% less than conventional compounds")
+      setWord('ULTRA')
       setColor("#0067B0")
       setPoints(10)
     }else if (winner === segments[4]) {
@@ -88,13 +88,11 @@ export const USGypsum = () => {
   }
 
   const reset = () => {
-    console.log("clicked reset")
     setShowGuess(false)
     setQuestion("")
     setWord("")
     setColor("")
     setPoints("")
-    console.log(showGuess)
   }
 
   return (

@@ -87,13 +87,11 @@ export const Titan = ( ) => {
   // #142CA2 #DA0D21
 
   const reset = () => {
-    console.log("clicked reset")
     setShowGuess(false)
     setQuestion("")
     setWord("")
     setColor("")
     setPoints("")
-    console.log(showGuess)
   }
 
   return (

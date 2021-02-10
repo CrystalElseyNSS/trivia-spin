@@ -88,13 +88,11 @@ export const Shurtape = () => {
   }
 
   const reset = () => {
-    console.log("clicked reset")
     setShowGuess(false)
     setQuestion("")
     setWord("")
     setColor("")
     setPoints("")
-    console.log(showGuess)
   }
 
   return (
