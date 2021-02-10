@@ -85,9 +85,20 @@ export const Titan = ( ) => {
     setShowGuess(true)
   }
   // #142CA2 #DA0D21
+
+  const reset = () => {
+    console.log("clicked reset")
+    setShowGuess(false)
+    setQuestion("")
+    setWord("")
+    setColor("")
+    setPoints("")
+    console.log(showGuess)
+  }
+
   return (
     <>
-      { showGuess ? <Guess word={word} color={color} question={question} points={points} boothId={boothId}/> : 
+      { showGuess ? <Guess word={word} color={color} question={question} points={points} boothId={boothId} reset={reset}/> : 
       <div onClick={playWheel}>
       <WheelComponent
         segments={segments}

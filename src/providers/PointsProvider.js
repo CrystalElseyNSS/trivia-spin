@@ -15,7 +15,6 @@ export const PointsProvider = ({ children }) => {
                 } else if (data === true) {
                     setGameOverText(`${points} POINTS!`)
                     return fetch(`https://us-central1-sw-leaderboard.cloudfunctions.net/addPoints?points=${points}&attendee=${attendee}&awarded=${booth}wheelgame${points}`)
-                    //return fetch(`https://us-central1-sw-leaderboard.cloudfunctions.net/addUnlimitedPoints?points=${points}&attendee=${attendee}`)
                         .then(response => response.json())
                 }
             })
