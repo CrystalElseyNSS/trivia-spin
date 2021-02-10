@@ -16,6 +16,7 @@ export const Guess = (word) => {
   const color = word.color
   const question = word.question
   const points = word.points
+  const resetGame = word.reset
   const booth = word.boothId
   const count = wordStr.length
   const [guesses, setGuesses] = useState([])
@@ -68,12 +69,14 @@ export const Guess = (word) => {
         <div className="gameOverContainer">
           <Confetti width={width} height={height} numberOfPieces={900} gravity={0.2} ></Confetti>
           <h1 className="gameOver">{gameOverText}</h1>
+          <div className="playAgain" id="playAgainWin" onClick={() => resetGame()}>PLAY AGAIN</div>
         </div>
         :
         <div>
           {hasLost ?
             <div className="gameOverContainer">
-                <h1 className="gameOver">TRY AGAIN</h1>
+                <h1 className="gameOver">SORRY, TRY AGAIN</h1>
+                <div className="playAgain" id="playAgainLose" onClick={() =>resetGame()}>PLAY AGAIN</div>
             </div>
             :
             <div id="guessContainer">

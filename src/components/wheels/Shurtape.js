@@ -87,9 +87,19 @@ export const Shurtape = () => {
     setShowGuess(true)
   }
 
+  const reset = () => {
+    console.log("clicked reset")
+    setShowGuess(false)
+    setQuestion("")
+    setWord("")
+    setColor("")
+    setPoints("")
+    console.log(showGuess)
+  }
+
   return (
     <>
-      { showGuess ? <Guess word={word} color={color} question={question} points={points} boothId={boothId}/> : 
+      { showGuess ? <Guess word={word} color={color} question={question} points={points} boothId={boothId} reset={reset}/> : 
       <div onClick={playWheel}>
       <WheelComponent
         segments={segments}
