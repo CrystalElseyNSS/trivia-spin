@@ -125,7 +125,7 @@ export const WheelComponent = ({
     ctx.rotate((lastAngle + angle) / 2)
     ctx.fillStyle = 'white'
     ctx.lineWidth = 10
-    ctx.font = "bolder 1.8em 'Arial Black'"
+    ctx.font = "bolder 1.7em 'Arial Black'"
     ctx.fillText(value.substr(0, 21), size / 2 + 20, 0)
     ctx.restore()
   }
@@ -141,7 +141,7 @@ export const WheelComponent = ({
     ctx.strokeStyle = 'white'
     ctx.textBaseline = 'middle'
     ctx.textAlign = 'center'
-    ctx.font = "bolder 1.8em 'Arial Black'"
+    ctx.font = "bolder 1.7em 'Arial Black'"
     for (let i = 1; i <= len; i++) {
       const angle = PI2 * (i / len) + angleCurrent
       drawSegment(i - 1, lastAngle, angle)
@@ -160,13 +160,13 @@ export const WheelComponent = ({
     ctx.beginPath()
     ctx.arc(centerX, centerY, 50, 0, PI2, false)
     ctx.closePath()
-    ctx.lineWidth = 10
+    ctx.lineWidth = 8
     ctx.strokeStyle = 'white'
 
     // Define the gradient
     const gradient = ctx.createLinearGradient(300, 150, 620, 235) // starting points of x & y-axes, ending points of x & y-axes
-    gradient.addColorStop(0, 'red')
-    gradient.addColorStop(0.3, 'blue')
+    gradient.addColorStop(0, '#F8D3C5')
+    gradient.addColorStop(0.3, '#f0e2ce')
     
     // Draw circle container for gradient
     ctx.fillStyle = gradient // define the fill
@@ -176,7 +176,7 @@ export const WheelComponent = ({
     ctx.fill() // fill the circle with the specified fillStyle
     
     // Draw 'SPIN' in center circle
-    ctx.font = 'bolder 1.8em Arial Black'
+    ctx.font = 'bolder 1.5em Arial Black'
     ctx.fillStyle = 'white'
     ctx.textAlign = 'center'
     ctx.fillText('SPIN', centerX, centerY + 3)

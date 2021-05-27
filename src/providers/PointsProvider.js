@@ -6,13 +6,13 @@ export const PointsProvider = ({ children }) => {
     const [gameOverText, setGameOverText] = useState("")
     
     const addPoints = (points, attendee, booth) => {
-        fetch(`https://us-central1-sw-leaderboard.cloudfunctions.net/checkPathStatusFromGame?attendee=${attendee}`)
+        fetch(``)
             .then(response => response.json())
             .then(data => {
                 if (data === false) {
                     setGameOverText('NOT YET ELIGIBLE FOR POINTS. SEE LEADERBOARD FOR RULES!')
                 } else if (data === true) {
-                    return fetch(`https://us-central1-sw-leaderboard.cloudfunctions.net/addPoints?points=${points}&attendee=${attendee}&awarded=${booth}wheelgame${points}`)
+                    return fetch(``)
                         .then(response => response.text())
                         .then(text => {
                             if (text === "points already awarded for this action") {

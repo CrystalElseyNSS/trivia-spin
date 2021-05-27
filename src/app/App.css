@@ -1,5 +1,5 @@
 body {
-  background-image: url("https://eventfinity-production-assets.s3.amazonaws.com/materials/743361/original/Games-Background.png");
+  background-image: linear-gradient(#F8D3C5, white);
   background-repeat: no-repeat;
   background-size: cover;
   font-family: Arial, sans-serif;
@@ -13,10 +13,8 @@ body {
 }
 
 #guessContainer {
-  background-color: white;
-  border: 2px solid turquoise;
-  height: 90vh;
-  margin: 4% auto;
+  height: 80vh;
+  margin: 10% auto 0;
   padding-left: 2%;
   padding-right: 2%;
   width: 90vw;
@@ -24,9 +22,9 @@ body {
 }
 
 .question {
-  color: #0067b0;
+  color: #A3B899;
   font-family: 'Arial Black';
-  font-size: 3.8vw;
+  font-size: 3vw;
   text-align: center;
   width: 100%;
 }
@@ -37,27 +35,27 @@ body {
 
 .answerDiv {
   display: flex;
-  flex: nowrap;
 }
 
 .answer {
   display: flex;
   flex-wrap: nowrap;
+  justify-content: center;
   margin: auto;
   position: relative;
   right: -3.5vw;
   z-index: 1;
+  width: 80%;
 }
 
 .correct {
   perspective: 1000px;
-  border: 1px outset whitesmoke;
   border-radius: 5px;
-  width: 5vw;
+  width: 4vw;
   color: whitesmoke;
-  font-size: 4.5vw;
-  height: 5vw;
-  line-height: 5vw;
+  font-size: 4vw;
+  height: 4vw;
+  line-height: 4vw;
   margin-left: 0.5vw;
   margin-right: 0.5vw;
   text-align: center;
@@ -67,6 +65,7 @@ body {
 
 #counter {
   border-radius: 50%;
+  background-color: #A3B899;
   color: white;
   font-family: 'Arial Black';
   font-size: 3vw;
@@ -91,7 +90,7 @@ body {
 }
 
 .key button {
-  background-color: lightgray;
+  background-color: whitesmoke;
   border: 2px outset whitesmoke;
   border-radius: 50%;
   font-size: 3vw;
@@ -115,11 +114,9 @@ textarea {
 
 .gameOverContainer {
   align-items: center;
-  background-color: white;
-  border: 2px solid turquoise;
   display: flex;
   flex-direction: column;
-  height: 80vh;
+  height: 70vh;
   justify-content: center;
   margin: 5% auto;
   width: 90vw;
@@ -127,9 +124,9 @@ textarea {
 }
 
 .gameOver {
-  color: #0067b0;
+  color: #a3b899;
   font-family: 'Arial Black';
-  font-size: 5vw;
+  font-size: 4vw;
   margin-bottom: 0;
   padding: 5%;
   text-align: center;
@@ -137,21 +134,21 @@ textarea {
 }
 
 .goBack {
-  background-color: #0067b0;
+  background-color: #A3B899;
   border-radius: 10px;
   color: #fff;
   padding: 0.5vh 2vh;
   font-size: 1.2vw;
   font-weight: 600;
   cursor: pointer;
-  margin-bottom: 0;
+  margin-bottom: 2%;
   margin-top: 1%;
   text-align: center;
   width: 6vw;
 }
 
 .playAgain {
-  background-color: #0067b0;
+  background-color: #A3B899;
   border-radius: 10px;
   color: #fff;
   padding: 2vh 5vh;
@@ -160,5 +157,5 @@ textarea {
 }
 
 .playAgain:hover {
-  background-color: #00B3BF;
+  background-color: #DDE6D5;
 }

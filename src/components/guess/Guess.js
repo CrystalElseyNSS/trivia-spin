@@ -13,17 +13,17 @@ import '../../app/App.css'
 export const Guess = (word) => {
 
   const wordStr = word.word
-  const color = word.color
+  // const color = word.color
   const question = word.question
   const points = word.points
   const resetGame = word.reset
   const booth = word.boothId
   const count = wordStr.length
-  const [guesses, setGuesses] = useState([])
+  const [guesses, setGuesses] = useState(["_"])
   const [hasWon, setHasWon] = useState(false)
   const [hasLost, setHasLost] = useState(false)
   const { gameOverText, addPoints } = useContext(PointsContext)
-  const [guessCount, setGuessCount] = useState(18)
+  const [guessCount, setGuessCount] = useState(15)
   const width = window.innerWidth
   const height = window.innerWidth
   const [playTrombone] = useSound(trombone, { volume: 0.25 })
@@ -40,7 +40,7 @@ export const Guess = (word) => {
 
   const win = () => {
     setHasWon(true)
-    addPoints(points, player, booth)
+    // addPoints(points, player, booth)
   }
 
   const lose = () => {
@@ -67,18 +67,19 @@ export const Guess = (word) => {
     <>
       { hasWon ?
         <div className="gameOverContainer">
-          <Confetti width={width} height={height} numberOfPieces={900} gravity={0.2} ></Confetti>
-          { gameOverText.length ?
+          <Confetti width={width} height={height} numberOfPieces={900} gravity={0.2} colors={["#F8D3C5", "#DDE6D5", "#A3B899", "#FCEEE9", "#F7E7CE", "D3D0C9", "whitesmoke"]}></Confetti>
+          {/* { gameOverText.length ?
             <h1 className="gameOver">{gameOverText}</h1>
             : <h1 className="gameOver">CHECKING YOUR ANSWER...</h1>
-          }
+          } */}
+           <h1 className="gameOver">"A PERSON SHOULD NOT BELIEVE IN AN -ISM. HE SHOULD BELIEVE IN HIMSELF." (FERRIS BUELLER)</h1>
           <div className="playAgain" id="playAgainWin" onClick={() => resetGame()}>PLAY AGAIN</div>
         </div>
         :
         <div>
           {hasLost ?
             <div className="gameOverContainer">
-                <h1 className="gameOver">SORRY, TRY AGAIN</h1>
+                <h1 className="gameOver">SORRY. JUMP IN THE DELOREAN TO GO BACK AND TRY AGAIN!</h1>
                 <div className="playAgain" id="playAgainLose" onClick={() =>resetGame()}>PLAY AGAIN</div>
             </div>
             :
@@ -92,12 +93,12 @@ export const Guess = (word) => {
                   {(new Array(wordStr.length)).fill(0).map((e, i) => {
                     const c = wordStr.charAt(i)
                     const reveal = guesses.join('').indexOf(c) >= 0
-                    return (<Key key={i} value={c} reveal={reveal} color={color} />)
+                    return (<Key key={i} value={c} reveal={reveal} /*color={color}*/ />)
                   })}
                 </div>
-                <div>
-                  <div id="counter" style={{ backgroundColor: color }}>{guessCount}</div>
-                </div>
+              
+                  <div id="counter" /*style={{ backgroundColor: color }}*/>{guessCount}</div>
+                
               </div>
               <div>
                 <div className="keyboard">

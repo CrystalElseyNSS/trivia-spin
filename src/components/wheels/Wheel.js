@@ -8,7 +8,7 @@ import { Guess } from '../guess/Guess';
 export const Wheel = () => {
   
   const [ word, setWord ] = useState("")
-  const [ color, setColor ] = useState("")
+  // const [ color, setColor ] = useState("")
   const [ question, setQuestion ] = useState("")
   const [ points, setPoints ] = useState(0)
   const [ showGuess, setShowGuess ] = useState(false)
@@ -29,57 +29,59 @@ export const Wheel = () => {
   ];
   
   const segColors = [
-    "#00B3BF", // TEAL 
-    "#FF4DBA", // PINK
-    "#EB2931", // RED 
-    "#0067B0", // BLUE 
-    "#FBB03B", // YELLOW 
-    "#F15A24", // ORANGE 
-    "#009245", // GREEN 
-    "#662D91", // PURPLE
+    "#F8D3C5", 
+    "#DDE6D5",
+    "#A3B899",
+    "#FCEEE9",
+    "#F8D3C5", 
+    "#DDE6D5",
+    "#A3B899",
+    "#FCEEE9",
+
+
   ];
   
 
   function onFinished(winner) {
     if (winner === segments[0]) {
-      setQuestion("_______ Sherwin was one of two SHERWIN-WILLIAMS founders")
-      setWord('HENRY')
-      setColor("#00B3BF")
+      setQuestion("What was Alan Rickman's first feature film?")
+      setWord('DIE_HARD')
+      // setColor("#F8D3C5")
       setPoints(40)
     } else if (winner === segments[1]) {
-      setQuestion("Percy ___ was hired as the first paint chemist in the industry")
-      setWord('NEYMAN')
-      setColor("#FF4DBA")
+      setQuestion("What animal did Indiana Jones hate?")
+      setWord('SNAKES')
+      // setColor("#DDE6D5")
       setPoints(60)
     } else if (winner === segments[2]) {
-      setQuestion("In what city was SHERWIN-WILLIAMS founded?")
-      setWord('CLEVELAND')
-      setColor("#EB2931")
+      setQuestion("What was E.T.'s favorite candy?")
+      setWord('REESES_PIECES')
+      // setColor("#AEB899")
       setPoints(20)
     } else if (winner === segments[3]) {
-      setQuestion("What's the 2020 Color of the Year?")
-      setWord('NAVAL')
-      setColor("#0067B0")
+      setQuestion("What year does Marty McFly travel back to in the first Back to the Future movie?")
+      setWord('1955')
+      // setColor("#FCEEE9")
       setPoints(10)
     }else if (winner === segments[4]) {
-      setQuestion("What year was SHERWIN-WILLIAMS founded?")
-      setWord('1866')
-      setColor("#FBB03B")
+      setQuestion("What 1980's theme song inspired its own movie?")
+      setWord('EYE_OF_THE_TIGER')
+      // setColor("#F8D3C5")
       setPoints(30)
     } else if (winner === segments[5]) {
-      setQuestion("___ Williams was one of two SHERWIN-WILLIAMS founders")
-      setWord('EDWARD')
-      setColor("#F15A24")
+      setQuestion("What is the name of the spirit who possesses Sigourney Weaver's character in Ghostbusters?")
+      setWord('ZUUL')
+      // setColor("#DDE6D5")
       setPoints(70)
     } else if (winner === segments[6]) {
-      setQuestion('First patent for ready-mixed paint was taken out in ___')
-      setWord('1867')
-      setColor("#009245")
+      setQuestion("What was Baby's real name in Dirty Dancing?")
+      setWord('FRANCES')
+      // setColor("#AEB899")
       setPoints(50)
     } else if (winner === segments[7]) {
-      setQuestion("First patent for ready-mixed paint was taken out by D.R. ___")
-      setWord('AVERILL')
-      setColor("#662D91")
+      setQuestion("What color did Daniel have to paint Mr. Miagi's house in The Karate Kid?")
+      setWord('DIE_HARD')
+      // setColor("#FCEEE9")
       setPoints(80)
     } 
     setShowGuess(true)
@@ -90,13 +92,13 @@ const reset = () => {
   setShowGuess(false)
   setQuestion("")
   setWord("")
-  setColor("")
+  // setColor("")
   setPoints("")
 }
 
   return (
     <>
-      { showGuess ? <Guess word={word} color={color} question={question} points={points} reset={reset}/> : 
+      { showGuess ? <Guess word={word} /*color={color}*/ question={question} points={points} reset={reset}/> : 
       <div onClick={playWheel}>
       <WheelComponent
         segments={segments}
