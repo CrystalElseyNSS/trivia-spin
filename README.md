@@ -2,6 +2,9 @@
 
 A wheel of fortune style trivia game built with React Hooks 
 
+![](https://eventfinity-production-assets.s3.amazonaws.com/materials/1149101/original/wheel1.png)
+![](https://eventfinity-production-assets.s3.amazonaws.com/materials/1149111/original/wheel2.png)
+
 
 ## Installation
 
@@ -18,11 +21,8 @@ npm install --save react-wheel-of-prizes
 npm install --save use-sound
 ```
 
+
 ## Package Docs
 
-react-confetti: https://www.npmjs.com/package/react-confetti
-
-react-wheel-of-prizes: https://www.npmjs.com/package/react-wheel-of-prizes
-
-![](https://eventfinity-production-assets.s3.amazonaws.com/materials/1149101/original/wheel1.png)
-![](https://eventfinity-production-assets.s3.amazonaws.com/materials/1149111/original/wheel2.png)
+- react-confetti: https://www.npmjs.com/package/react-confetti
+- react-wheel-of-prizes: https://www.npmjs.com/package/react-wheel-of-prizes
