@@ -22,3 +22,6 @@ npm install --save react-wheel-of-prizes
 react-confetti: https://www.npmjs.com/package/react-confetti
 
 react-wheel-of-prizes: https://www.npmjs.com/package/react-wheel-of-prizes
+
+![](https://eventfinity-production-assets.s3.amazonaws.com/materials/1149101/original/wheel1.png)
+![](https://eventfinity-production-assets.s3.amazonaws.com/materials/1149111/original/wheel2.png)
