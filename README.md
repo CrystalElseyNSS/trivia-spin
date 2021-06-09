@@ -15,10 +15,7 @@ cd trivia-spin
 
 ```bash
 npm install
-npm install --save reactstrap react-router-dom
-npm install --save react-confetti
-npm install --save react-wheel-of-prizes
-npm install --save use-sound
+npm start
 ```
 
 
