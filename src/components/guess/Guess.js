@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { PointsContext } from '../../providers/PointsProvider';
+import React, { useEffect, useState } from 'react';
+// import { useParams } from 'react-router-dom';
+// import { PointsContext } from '../../providers/PointsProvider';
 import { KeyBoard } from './KeyBoard';
 import { Key } from './Key';
 // import { DrawStar } from '../confetti/DrawStar';
@@ -15,14 +15,14 @@ export const Guess = (word) => {
   const wordStr = word.word
   // const color = word.color
   const question = word.question
-  const points = word.points
+  // const points = word.points
   const resetGame = word.reset
-  const booth = word.boothId
+  // const booth = word.boothId
   const count = wordStr.length
   const [guesses, setGuesses] = useState(["_"])
   const [hasWon, setHasWon] = useState(false)
   const [hasLost, setHasLost] = useState(false)
-  const { gameOverText, addPoints } = useContext(PointsContext)
+  // const { gameOverText, addPoints } = useContext(PointsContext)
   const [guessCount, setGuessCount] = useState(15)
   const width = window.innerWidth
   const height = window.innerWidth
@@ -31,7 +31,7 @@ export const Guess = (word) => {
 
   document.addEventListener('mousedown', playClick);
 
-  const { player } = useParams()
+  // const { player } = useParams()
   const guess = (c) => {
     if (guesses.join('').indexOf(c) < 0)
       setGuesses([...guesses, c])
