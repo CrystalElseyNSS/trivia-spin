@@ -165,8 +165,8 @@ export const WheelComponent = ({
 
     // Define the gradient
     const gradient = ctx.createLinearGradient(300, 150, 620, 235) // starting points of x & y-axes, ending points of x & y-axes
-    gradient.addColorStop(0, '#F8D3C5')
-    gradient.addColorStop(0.3, '#f0e2ce')
+    gradient.addColorStop(0, '#A3B899')
+    gradient.addColorStop(0.3, '#DDE6D5')
     
     // Draw circle container for gradient
     ctx.fillStyle = gradient // define the fill

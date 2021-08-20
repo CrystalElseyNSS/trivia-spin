@@ -29,14 +29,14 @@ export const Wheel = () => {
   ];
   
   const segColors = [
+    "#F8D3C5", /* pink */
+    "#DDE6D5", /* pale green */
+    "#A3B899", /* green */
+    "#CAC8C7", /* gray */
     "#F8D3C5", 
     "#DDE6D5",
     "#A3B899",
-    "#FCEEE9",
-    "#F8D3C5", 
-    "#DDE6D5",
-    "#A3B899",
-    "#FCEEE9",
+    "#CAC8C7",
 
 
   ];
@@ -80,7 +80,7 @@ export const Wheel = () => {
       setPoints(50)
     } else if (winner === segments[7]) {
       setQuestion("What color did Daniel have to paint Mr. Miagi's house in The Karate Kid?")
-      setWord('DIE_HARD')
+      setWord('GREEN')
       // setColor("#FCEEE9")
       setPoints(80)
     } 

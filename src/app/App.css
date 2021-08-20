@@ -8,13 +8,13 @@ body {
 }
 
 #canvas {
-  margin-left: 23%;
-  width: 90vw;
+  margin-left: 26%;
+  width: 80vw;
 }
 
 #guessContainer {
   height: 80vh;
-  margin: 10% auto 0;
+  margin: 5% auto 0;
   padding-left: 2%;
   padding-right: 2%;
   width: 90vw;
@@ -158,4 +158,8 @@ textarea {
 
 .playAgain:hover {
   background-color: #DDE6D5;
+}
+
+.test {
+  color: #cac8c7
 }
